@@ -1,5 +1,11 @@
 # Swapaway
 
+**Dependencies**
+npm install
+npm install nodemon body-parser mongoose mongoose-type-url --save
+npm install chai mocha chai-http request --save-dev
+
+
 The premiere item swap app
 
 ```
