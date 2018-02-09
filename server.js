@@ -1,13 +1,20 @@
+// change to const at a later date
 var express = require('express');
 var favicon = require('serve-favicon');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+// creates a connection to the database: swapaway-production
+mongoose.connect('mongod://localhost/swapaway-production');
+
+// require routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// server
 var server = express();
 
 // view engine setup
@@ -22,6 +29,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 
+// routes
 server.use('/', index);
 server.use('/users', users);
 
