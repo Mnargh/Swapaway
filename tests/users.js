@@ -24,4 +24,13 @@ describe('Users Routes', function(){
          done()
        });
     });
+
+    it("/users/new can create a new user", function(done){
+      chai.request(server)
+        .get('/users/new')
+        .end(function (err, res) {
+          expect(res).to.have.status(200)
+          done()
+        });
+     });
 });
