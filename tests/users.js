@@ -15,4 +15,13 @@ describe('Users Routes', function(){
         done()
       });
    });
+
+   it("/users should return all users", function(done){
+     chai.request(server)
+       .get('/users')
+       .end(function (err, res) {
+         expect(res.text).to.equal("working")
+         done()
+       });
+    });
 });
