@@ -16,21 +16,12 @@ describe('Users Routes', function(){
       });
    });
 
-   it("/users should return all users", function(done){
-     chai.request(server)
-       .get('/users')
-       .end(function (err, res) {
-         expect(res.text).to.equal("working")
-         done()
-       });
-    });
-
     //Should write test for whether server is actually providing the correct response from the database
     // to pass on to the front end
 
     it("/users/new can create a new user", function(done){
       chai.request(server)
-        .get('/users/new')
+        .post('/users/new')
         .end(function (err, res) {
           expect(res).to.have.status(200)
           done()
