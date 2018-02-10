@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // creates a connection to the database: swapaway-production
-mongoose.connect('mongod://localhost/swapaway-production');
+mongoose.connect('mongodb://localhost/swapaway-production')
 
 // require routes
 var index = require('./routes/index');
