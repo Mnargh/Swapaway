@@ -42,4 +42,9 @@ describe ('testing App component', () => {
   it('Shows the text from the request', () => {
     expect(wrapper.state()).toEqual({ users: [{"name":"Tom"}]});
   });
+
+  it('Renders in the correct way, given a state', () => {
+    wrapper.setState({ users: [{"name": "Charles"}]});
+    expect(wrapper.text()).toEqual('UsersCharles');
+  });
 });
