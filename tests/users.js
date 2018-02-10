@@ -25,6 +25,9 @@ describe('Users Routes', function(){
        });
     });
 
+    //Should write test for whether server is actually providing the correct response from the database
+    // to pass on to the front end
+
     it("/users/new can create a new user", function(done){
       chai.request(server)
         .get('/users/new')
