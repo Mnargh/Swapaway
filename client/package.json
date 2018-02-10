@@ -11,12 +11,13 @@
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "jest-fetch-mock": "^1.4.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
