@@ -2,43 +2,32 @@ import React, { Component } from "react";
 import { Form, FormGroup, Col, FormControl, ControlLabel, Checkbox, Button } from "react-bootstrap";
 
 class SignUpForm extends Component {
+
+  constructor(){
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch('/users/new',{
+      method: "POST",
+      body: data,
+    });
+  }
+
   render() {
     return (
       <div className="SignUpForm">
-        <Form horizontal>
+        <Form horizontal onSubmit={this.handleSubmit}>
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
               Email
             </Col>
             <Col sm={10}>
-              <FormControl type="email" placeholder="Email" />
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl type="password" placeholder="Password" />
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col componentClass={ControlLabel} sm={2}>
-              First Name
-            </Col>
-            <Col sm={10}>
-              <FormControl type="text" placeholder="First Name" />
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col componentClass={ControlLabel} sm={2}>
-              Last Name
-            </Col>
-            <Col sm={10}>
-              <FormControl type="text" placeholder="Last Name" />
+              <FormControl type="email" name="email" placeholder="Email" />
             </Col>
           </FormGroup>
 
@@ -47,7 +36,16 @@ class SignUpForm extends Component {
               User Name
             </Col>
             <Col sm={10}>
-              <FormControl type="text" placeholder="User Name" />
+              <FormControl type="text" name="username" placeholder="User Name" />
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Password
+            </Col>
+            <Col sm={10}>
+              <FormControl type="password" name="password" placeholder="Password" />
             </Col>
           </FormGroup>
 
@@ -56,7 +54,7 @@ class SignUpForm extends Component {
               Bio
             </Col>
             <Col sm={10}>
-              <FormControl type="text" placeholder="Add something about your self" />
+              <FormControl type="text" name="bio" placeholder="Add something about your self" />
             </Col>
           </FormGroup>
 

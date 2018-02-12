@@ -17,6 +17,7 @@ router.post('/new', function(req, res, next) {
     name: "tester",
     password: "12345",
     description: "this is a test"
+    
   })
 
   newUser.save(function(err, newUser){
