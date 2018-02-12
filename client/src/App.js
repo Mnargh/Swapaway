@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from './components/pages/homepage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
+import NewItemPage from './components/pages/NewItemPage';
 import { Route } from 'react-router-dom';
 
 // class App extends Component {
@@ -37,6 +38,7 @@ const App = () => (
     <Route path="/" exact component={HomePage} />
     <Route path="/login" exact component={LoginPage} />
     <Route path="/signup" exact component={SignUpPage} />
+    <Route path="/newitem" exact component={NewItemPage} />
   </div>
 )
 
