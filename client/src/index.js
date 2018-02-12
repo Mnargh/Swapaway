@@ -11,7 +11,9 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <MainNavbar />
-      <App />
+      <div className="container">
+        <App />
+      </div>
     </div>
   </BrowserRouter>,
    document.getElementById('root'));
