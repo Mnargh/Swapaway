@@ -16,4 +16,12 @@ describe('Users Routes', function(){
       });
    });
 
+   it("users can send a successful request to create a new item", function(done){
+     chai.request(server)
+      .post('/items/new')
+      .end(function (err, res) {
+        expect(res).to.have.status(200)
+        done()
+      });
+   });
 });
