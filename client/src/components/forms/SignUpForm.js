@@ -3,25 +3,29 @@ import { Form, FormGroup, Col, FormControl, ControlLabel, Checkbox, Button } fro
 
 class SignUpForm extends Component {
 
-  constructor(){
-    super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  // constructor(){
+  //   super();
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
-  handleSubmit(event){
-    event.preventDefault();
-    const data = new FormData(event.target);
-
-    fetch('/users/new',{
-      method: "POST",
-      body: data,
-    });
-  }
+  // handleSubmit(event){
+  //   event.preventDefault();
+  //   const data = new FormData(event.target);
+  //
+  //   console.log(data);
+  //
+  //   fetch('/users/new',{
+  //     method: "POST",
+  //     body: data,
+  //   });
+  //
+  //   console.log(data);
+  // }
 
   render() {
     return (
       <div className="SignUpForm">
-        <Form horizontal onSubmit={this.handleSubmit}>
+        <Form horizontal action='/users/new' method="POST">
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
               Email

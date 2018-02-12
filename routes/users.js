@@ -13,18 +13,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-  var newUser = new User({
-    name: "tester",
-    password: "12345",
-    description: "this is a test"
-    
-  })
+
+  var newUser = new User();
+  newUser.username = req.body.username;
+  newUser.email = req.body.email;
+  newUser.password = req.body.password;
+  newUser.bio = req.body.bio;
 
   newUser.save(function(err, newUser){
     if (err){
       res.send(err);
     } else {
-      res.send(`${newUser} successfully saved.`);
+      return res.redirect('/');
     }
   });
 });
