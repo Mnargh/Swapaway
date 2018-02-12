@@ -1,30 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HomePage from './components/pages/homepage';
+import { Route } from 'react-router-dom';
 
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = { users: []}
-  }
+// class App extends Component {
+//   constructor(props){
+//     super(props)
+//     this.state = { users: []}
+//   }
+//
+//   componentDidMount(){
+//     fetch('/users')
+//       .then(res => res.json())
+//       .then(users => this.setState({users}));
+//   }
+//
+//   render() {
+//     return (
+//       <div className="App">
+//         <h1>Users</h1>
+//         <ul>{this.state.users.map(user =>
+//           <li key={user.id}>{user.name}</li>
+//           )}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
 
-  componentDidMount(){
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({users}));
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Users</h1>
-        <ul>{this.state.users.map(user =>
-          <li key={user.id}>{user.name}</li>
-          )}
-        </ul>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Route path="/" exact component={HomePage} />
+)
 
 export default App;
