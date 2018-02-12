@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Col, FormControl, ControlLabel, Checkbox, Button } from "react-bootstrap";
 
-class SignInForm extends Component {
+class LoginForm extends Component {
   render() {
     return (
-      <div className="SignInForm">
+      <div className="LoginForm">
         <Form horizontal>
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
@@ -41,4 +41,4 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm;
+export default LoginForm;
