@@ -3,7 +3,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import HomePage from './components/pages/homepage';
-import SignInPage from './components/forms/SignIn';
+import LoginPage from './components/pages/LoginPage';
+import SignUpPage from './components/pages/SignUpPage';
 import { Route } from 'react-router-dom';
 
 // class App extends Component {
@@ -34,7 +35,8 @@ import { Route } from 'react-router-dom';
 const App = () => (
   <div>
     <Route path="/" exact component={HomePage} />
-    <Route path="/signin" exact component={SignInPage} />
+    <Route path="/login" exact component={LoginPage} />
+    <Route path="/signup" exact component={SignUpPage} />
   </div>
 )
 

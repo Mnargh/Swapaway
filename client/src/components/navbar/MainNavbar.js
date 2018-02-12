@@ -13,7 +13,7 @@ class MainNavbar extends Component {
           </Navbar.Header>
           <Nav pullRight>
             <NavItem href="/signup">Sign up</NavItem>
-            <NavItem href="/signin">Login</NavItem>
+            <NavItem href="/login">Login</NavItem>
             <NavItem href="/logout">Logout</NavItem>
           </Nav>
         </Navbar>
