@@ -13,6 +13,8 @@ mongoose.connect('mongodb://localhost/swapaway-production')
 // require routes
 var index = require('./routes/index');
 var users = require('./routes/users');
+var items = require('./routes/items');
+
 
 // server
 var server = express();
@@ -32,6 +34,8 @@ server.use(express.static(path.join(__dirname, 'public')));
 // routes
 server.use('/', index);
 server.use('/users', users);
+server.use('/items', items);
+
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {
