@@ -29,4 +29,13 @@ router.post('/new', function(req, res, next) {
   });
 });
 
+router.get('/:userId', function(req, res, next) {
+  User.findById(req.params.userId, function(err, user) {
+    if (err) res.send(err);
+    res.json(user);
+  });
+}); 
+
+
+
 module.exports = router;

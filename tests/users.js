@@ -2,6 +2,9 @@ var expect = require('chai').expect;
 var request = require('request');
 var server = require('../server');
 var chai = require('chai'), chaiHttp = require('chai-http');
+var should = chai.should();
+
+var User = require('../models/users')
 
 chai.use(chaiHttp);
 
@@ -19,12 +22,31 @@ describe('Users Routes', function(){
     //Should write test for whether server is actually providing the correct response from the database
     // to pass on to the front end
 
-    it("/users/new can create a new user", function(done){
-      chai.request(server)
-        .post('/users/new')
-        .end(function (err, res) {
-          expect(res).to.have.status(200)
-          done()
+  it("/users/new can create a new user", function(done){
+    chai.request(server)
+      .post('/users/new')
+      .end(function (err, res) {
+        expect(res).to.have.status(200)
+        done()
+      });
+    });
+
+  it('it should GET a user by the given id', (done) => {
+    let user = new User({ email: "testing@hotmail.com", username: "tester", password: "12345", bio: "J.R.R. Tolkien"});
+    user.save((err, user) => {
+        chai.request(server)
+        .get('/users/' + user.id)
+        .send(user)
+        .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('Object');
+            res.body.should.have.property('email');
+            res.body.should.have.property('username');
+            res.body.should.have.property('password');
+            res.body.should.have.property('bio');                
+            res.body.should.have.property('_id').eql(user.id);
+          done();
         });
-     });
+    }); 
+  });
 });
