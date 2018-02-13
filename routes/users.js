@@ -22,9 +22,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// Create 
+// Create
 router.post('/new', function(req, res, next) {
-  
+
   var newUser = new User();
   newUser.username = req.body.username;
   newUser.email = req.body.email;
@@ -48,14 +48,29 @@ router.get('/:id', function(req, res, next) {
     if (err) res.send(err);
     res.json(user);
   });
-}); 
+});
+
+// Update
+router.put('/:id', function(req, res, next) {
+  User.update({_id : req.params.id}, {
+      username : req.body.username,
+      email : req.body.email,
+      password : req.body.password,
+      bio : req.body.bio
+    },
+    function(err, user) {
+        if (err) res.send(err);
+        else res.redirect('/user/'+ req.params.id);
+    });
+  });
+});
 
 // Delete
 router.delete('/:id', function(req, res, next) {
   User.remove({_id : req.params.id}, (err, result) => {
     res.json({ message: "user successfully deleted!", result });
   });
-}); 
+});
 
 
 module.exports = router;
