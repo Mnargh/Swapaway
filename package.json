@@ -18,6 +18,7 @@
     "express-session": "^1.15.6",
     "jade": "~1.11.0",
     "mongoose": "^5.0.4",
+    "mongoose-file": "0.0.2",
     "mongoose-type-url": "^1.0.2",
     "morgan": "~1.9.0",
     "nodemon": "^1.14.12",
