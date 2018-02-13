@@ -49,4 +49,22 @@ describe('Users Routes', function(){
         });
     }); 
   });
+
+  it('it should DELETE a user given the id', (done) => {
+    let user = new User({title: "The Chronicles of Narnia", author: "C.S. Lewis", year: 1948, pages: 778})
+    user.save((err, user) => {
+            chai.request(server)
+            .delete('/users/' + user.id)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('message').eql('user successfully deleted!');
+                res.body.result.should.have.property('ok').eql(1);
+                res.body.result.should.have.property('n').eql(1);
+              done();
+            });
+      });
+  });
+
+
 });

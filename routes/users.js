@@ -5,11 +5,11 @@ var User = require("../models/users");
 // var session = require('express-session')
 /* GET users listing. */
 
-router.use(session({
-    secret: "testing",
-    saveUninitialized: false,
-    resave: false
-  }));
+// router.use(session({
+//     secret: "testing",
+//     saveUninitialized: false,
+//     resave: false
+//   }));
 
 router.get('/', function(req, res, next) {
   var users = User.find({});
@@ -20,8 +20,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-
-  console.log(req.body)
   
   var newUser = new User();
   newUser.username = req.body.username;
@@ -48,6 +46,11 @@ router.get('/:id', function(req, res, next) {
   });
 }); 
 
+router.delete('/:id', function(req, res, next) {
+  User.remove({_id : req.params.id}, (err, result) => {
+    res.json({ message: "user successfully deleted!", result });
+  });
+}); 
 
 
 module.exports = router;
