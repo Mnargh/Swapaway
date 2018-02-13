@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var itemsSchema = new Schema({
   name: String,
-  picture: mongoose.SchemaTypes.Url,
+  picture: String,
   description: String,
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
 

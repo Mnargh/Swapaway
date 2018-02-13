@@ -39,19 +39,19 @@ router.get('/:id', function(req, res, next) {
 });
 
 // Update
-router.put('/:id', function(req, res, next) {
-  Item.update({_id : req.params.id}, {
-    name : req.body.name
-    picture : req.body.picture
-    description : req.body.description
-    owner : req.body.owner
-    },
-    function(err, item) {
-        if (err) res.send(err);
-        else res.redirect('/items/'+ req.params.id);
-    });
-  });
-});
+// router.put('/:id', function(req, res, next) {
+//   Item.update({_id : req.params.id}, {
+//     name : req.body.name
+//     picture : req.body.picture
+//     description : req.body.description
+//     owner : req.body.owner
+//     },
+//     function(err, item) {
+//         if (err) res.send(err);
+//         else res.redirect('/items/'+ req.params.id);
+//     });
+//   });
+// });
 
 // Delete
 router.delete('/:id', function(req, res, next) {

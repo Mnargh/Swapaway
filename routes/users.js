@@ -51,19 +51,19 @@ router.get('/:id', function(req, res, next) {
 });
 
 // Update
-router.put('/:id', function(req, res, next) {
-  User.update({_id : req.params.id}, {
-      username : req.body.username,
-      email : req.body.email,
-      password : req.body.password,
-      bio : req.body.bio
-    },
-    function(err, user) {
-        if (err) res.send(err);
-        else res.redirect('/user/'+ req.params.id);
-    });
-  });
-});
+// router.put('/:id', function(req, res, next) {
+//   User.update({_id : req.params.id}, {
+//       username : req.body.username,
+//       email : req.body.email,
+//       password : req.body.password,
+//       bio : req.body.bio
+//     }
+//     function(err, user) {
+//         if (err) res.send(err);
+//         else res.redirect('/user/'+ req.params.id);
+//     });
+//   });
+// });
 
 // Delete
 router.delete('/:id', function(req, res, next) {
@@ -71,6 +71,5 @@ router.delete('/:id', function(req, res, next) {
     res.json({ message: "user successfully deleted!", result });
   });
 });
-
 
 module.exports = router;

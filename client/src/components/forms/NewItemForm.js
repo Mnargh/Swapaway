@@ -12,7 +12,7 @@ class NewItemForm extends Component {
               Item name
             </Col>
             <Col sm={10}>
-              <FormControl type="text" name="itemName" placeholder="Red Paperclip" />
+              <FormControl type="text" name="name" placeholder="Red Paperclip" />
             </Col>
           </FormGroup>
 
@@ -21,7 +21,16 @@ class NewItemForm extends Component {
               Description
             </Col>
             <Col sm={10}>
-              <FormControl type="text" name="itemDescription" placeholder="Worth thousands of dollars" />
+              <FormControl type="file" name="picture" />
+            </Col>
+          </FormGroup>
+          
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Description
+            </Col>
+            <Col sm={10}>
+              <FormControl type="text" name="description" placeholder="Worth thousands of dollars" />
             </Col>
           </FormGroup>
 
@@ -30,7 +39,7 @@ class NewItemForm extends Component {
               Condition
             </Col>
             <Col sm={10}>
-              <FormControl type="text" name="itemCondition" placeholder="Excellent" />
+              <FormControl type="text" name="condition" placeholder="Excellent" />
             </Col>
           </FormGroup>
 

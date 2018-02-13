@@ -6,6 +6,7 @@ import HomePage from './components/pages/homepage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
 import NewItemPage from './components/pages/NewItemPage';
+import Items from './components/pages/Items';
 import { Route } from 'react-router-dom';
 
 // class App extends Component {
@@ -39,6 +40,7 @@ const App = () => (
     <Route path="/login" exact component={LoginPage} />
     <Route path="/signup" exact component={SignUpPage} />
     <Route path="/newitem" exact component={NewItemPage} />
+    <Route path="/items" exact component={Items} />
   </div>
 )
 

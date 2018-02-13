@@ -15,6 +15,7 @@ class MainNavbar extends Component {
             <NavItem href="/signup">Sign up</NavItem>
             <NavItem href="/login">Login</NavItem>
             <NavItem href="/logout">Logout</NavItem>
+            <NavItem href="/newitem">Add Item</NavItem>
           </Nav>
         </Navbar>
       </nav>
