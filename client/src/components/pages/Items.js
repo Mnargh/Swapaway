@@ -23,7 +23,7 @@ class Items extends Component {
          <Col xs={6} md={4}>
            <Thumbnail src={item.picture} alt="242x200">
              <center>
-               <Button href={"/items/" + item._id} bsStyle="default">Make Offer</Button>
+               <Button href={"/items/" + item._id} bsStyle="default">View Item</Button>
              </center>
            </Thumbnail>
          </Col>)}
@@ -32,5 +32,6 @@ class Items extends Component {
    );
  }
 }
+
 
 export default Items;
