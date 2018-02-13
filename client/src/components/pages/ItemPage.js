@@ -11,7 +11,7 @@ class ItemPage extends Component {
   }
 
   componentDidMount() {
-    fetch('/items/' + this.props.match.params.id)
+    fetch('/items/' + this.props.match.params._id)
     .then(res => res.json())
     .then(item => this.setState({item}))
   }
@@ -31,7 +31,7 @@ class ItemPage extends Component {
                     <Button href={"/items/" + this.state.item._id} bsStyle="default">Trade Item</Button>
                   </center>
                 </Thumbnail>
-              </Col>)
+              </Col>
             </Row>
           </Grid>
         </center>

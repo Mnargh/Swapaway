@@ -25,7 +25,6 @@ router.post('/new', function(req, res, next){
       res.send(err);
     }
     else{
-      res.json({ message: "Item successfully deleted!"});
       return res.redirect('/');
     }
   });
