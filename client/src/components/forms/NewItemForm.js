@@ -21,10 +21,10 @@ class NewItemForm extends Component {
               Description
             </Col>
             <Col sm={10}>
-              <FormControl type="file" name="picture" />
+              <FormControl type="text" name="picture" />
             </Col>
           </FormGroup>
-          
+
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
               Description

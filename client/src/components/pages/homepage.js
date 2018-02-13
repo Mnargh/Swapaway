@@ -7,7 +7,7 @@ class HomePage extends Component {
       <div className="HomePage">
         <center>
           <h1>Swapaway</h1>
-          <Button bsStyle="info" bsSize="large">View Items</Button>
+          <Button href="/items" bsStyle="info" bsSize="large">View Items</Button>
         </center>
       </div>
     );
