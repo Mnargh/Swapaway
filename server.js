@@ -19,6 +19,8 @@ var items = require('./routes/items');
 // server
 var server = express();
 
+
+
 // view engine setup
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'jade');
