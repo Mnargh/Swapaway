@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Item = require('../models/items')
+var session = require('express-session')
 
 // show all items
 router.get('/', function(req, res, next){

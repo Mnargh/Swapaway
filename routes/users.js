@@ -2,14 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 var User = require("../models/users");
-// var session = require('express-session')
-/* GET users listing. */
-
-// router.use(session({
-//     secret: "testing",
-//     saveUninitialized: false,
-//     resave: false
-//   }));
+var session = require('express-session')
 
 
 // Show all users
@@ -31,17 +24,29 @@ router.post('/new', function(req, res, next) {
   newUser.password = req.body.password;
   newUser.bio = req.body.bio;
 
-  // req.session.currentUser = newUser._id
+  req.session.currentUser = newUser._id
 
   newUser.save(function(err, newUser){
     if (err){
       res.send(err);
     } else {
-      // req.session.save()
+      req.session.save()
       res.json(newUser);
     }
   });
 });
+
+//dashboard
+
+// router.get('/dashboard', function(req, res){
+//   if(!req.session.currentUser){
+//     return res.status(401).send("Nothing happening")
+//   }
+//   else {
+//     return res.status(200).send("Welcome to the jungle");
+//   }
+// });
+
 // Read
 router.get('/:id', function(req, res, next) {
   User.findById(req.params.id, function(err, user) {

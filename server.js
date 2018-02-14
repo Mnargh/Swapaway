@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session')
 
 // creates a connection to the database: swapaway-production
 mongoose.connect('mongodb://localhost/swapaway-production')
@@ -21,6 +22,9 @@ var server = express();
 
 
 
+
+
+
 // view engine setup
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'jade');
@@ -32,6 +36,11 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
+server.use(session({
+    secret: "testing",
+    saveUninitialized: true,
+    resave: false
+  }));
 
 // routes
 server.use('/', index);
