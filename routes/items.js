@@ -19,7 +19,7 @@ router.post('/new', function(req, res, next){
   newItem.name = req.body.name
   newItem.picture = req.body.picture
   newItem.description = req.body.description
-  newItem.owner = req.body.owner
+  newItem.owner = req.session.currentUser
 
   newItem.save( function(err, newItem){
     if(err){
