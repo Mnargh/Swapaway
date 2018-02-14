@@ -12,15 +12,7 @@ router.get('/', function(req, res, next){
       res.json(items);
   });
 });
-// show items for a user
-router.get('/myitems', function(req, res, next){
-  let items = Item.find({ owner : req.session.currentUser });
-  console.log(items)
-  items.exec( function(err, items){
-      if(err) res.send(err);
-      res.json(items);
-  });
-});
+
 // create a new item
 router.post('/new', function(req, res, next){
   var newItem = new Item();

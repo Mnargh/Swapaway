@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 var User = require("../models/users");
+var Item = require("../models/items");
 var session = require('express-session')
 
 
@@ -33,6 +34,16 @@ router.post('/new', function(req, res, next) {
       req.session.save()
       res.json(newUser);
     }
+  });
+});
+
+
+// show items for a user
+router.get('/:id/myitems', function(req, res, next){
+  let items = Item.find({ owner : req.session.currentUser });
+  items.exec( function(err, items){
+      if(err) res.send(err);
+      res.json(items);
   });
 });
 
