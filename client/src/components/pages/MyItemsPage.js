@@ -11,7 +11,7 @@ class MyItemsPage extends Component {
 
  componentDidMount() {
    fetch('/items/myitems')
-   .then(res => res.json())
+   .then(res => console.log(res.json()))
    .then(items => this.setState({items}, () => console.log('Got items...',
    items)))
  }
@@ -22,7 +22,9 @@ class MyItemsPage extends Component {
        <Row>{this.state.items.map(item =>
          <Col xs={6} md={4}>
            <Thumbnail src={item.picture} alt="242x200">
+             {console.log(item)}
              <center>
+               {/* <h3> {this.state.item.description}</h3> */}
                <Button href={"/items/" + item._id} bsStyle="default">View Item</Button>
              </center>
            </Thumbnail>
