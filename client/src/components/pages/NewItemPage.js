@@ -6,7 +6,7 @@ class NewItemPage extends Component {
     return (
       <div className="NewItemPage">
         <center>
-          <h1>Sign In</h1>
+          <h1>Add Item</h1>
           <NewItemForm />
         </center>
       </div>

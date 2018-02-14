@@ -18,7 +18,7 @@ class NewItemForm extends Component {
 
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
-              Description
+              URL
             </Col>
             <Col sm={10}>
               <FormControl type="text" name="picture" />

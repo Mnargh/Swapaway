@@ -1,7 +1,7 @@
 // Items page to display all items
 import React, { Component } from 'react';
 import {Grid, Col, Thumbnail, Row, Button} from "react-bootstrap"
-class Items extends Component {
+class MyItemsPage extends Component {
  constructor() {
    super();
    this.state = {
@@ -10,7 +10,7 @@ class Items extends Component {
  }
 
  componentDidMount() {
-   fetch('/items')
+   fetch('/items/myitems')
    .then(res => res.json())
    .then(items => this.setState({items}, () => console.log('Got items...',
    items)))
@@ -19,7 +19,6 @@ class Items extends Component {
    return (
 
      <Grid>
-       <Button href={"/items/myitems"} byStyle="default">My Items</Button>
        <Row>{this.state.items.map(item =>
          <Col xs={6} md={4}>
            <Thumbnail src={item.picture} alt="242x200">
@@ -35,4 +34,4 @@ class Items extends Component {
 }
 
 
-export default Items;
+export default MyItemsPage;

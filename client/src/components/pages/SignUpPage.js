@@ -6,7 +6,7 @@ class SignUpPage extends Component {
     return (
       <div className="SignUpPage">
         <center>
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
           <SignUpForm />
         </center>
       </div>

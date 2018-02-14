@@ -31,6 +31,16 @@ router.post('/new', function(req, res, next){
   });
 });
 
+
+// show items for a user
+router.get('/myitems', function(req, res, next){
+  let items = Item.find({ owner : req.session.currentUser });
+  items.exec( function(err, items){
+      if(err) res.send(err);
+      res.json(items);
+  });
+});
+
 // Read
 router.get('/:id', function(req, res, next) {
   Item.findById(req.params.id, function(err, item) {
