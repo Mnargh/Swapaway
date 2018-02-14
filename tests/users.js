@@ -31,15 +31,35 @@ describe('Users Routes', function(){
       });
     });
 
-  it('it should GET a user by the given id', (done) => {
+
+  it('/users/login Users can login they have already have a account', function(done) {
+
+    var user = new User({ email: 'umairbashir95@hotmail.com', username: "tester", password: 'scxsacs'});
+  
+    chai.request(server)
+      .post('/users/login')
+      .send(user)
+      .end(function(err, res){
+        res.should.have.status(200);
+        res.body.should.be.a('Array');
+        res.body[0].should.have.property('email');
+        res.body[0].should.have.property('username');
+        res.body[0].should.have.property('password');
+        res.body[0].should.have.property('bio');                
+        done();
+      });
+
+  });
+
+  it('it should GET a user by the given id', function(done) {
     let user = new User({ email: "testing@hotmail.com", username: "tester", password: "12345", bio: "J.R.R. Tolkien"});
-    user.save((err, user) => {
+    user.save(function(err, user) {
         chai.request(server)
         .get('/users/' + user.id)
         .send(user)
-        .end((err, res) => {
+        .end(function(err, res) {
             res.should.have.status(200);
-            res.body.should.be.a('Object');
+            res.body.should.be.a('object');
             res.body.should.have.property('email');
             res.body.should.have.property('username');
             res.body.should.have.property('password');
@@ -50,12 +70,12 @@ describe('Users Routes', function(){
     }); 
   });
 
-  it('it should DELETE a user given the id', (done) => {
-    let user = new User({title: "The Chronicles of Narnia", author: "C.S. Lewis", year: 1948, pages: 778})
-    user.save((err, user) => {
+  it('it should DELETE a user given the id', function(done) {
+    var user = new User({title: "The Chronicles of Narnia", author: "C.S. Lewis", year: 1948, pages: 778})
+    user.save(function(err, user) {
             chai.request(server)
             .delete('/users/' + user.id)
-            .end((err, res) => {
+            .end(function(err, res) {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('message').eql('user successfully deleted!');

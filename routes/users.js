@@ -66,6 +66,22 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+
+router.post('/login', function(req, res, next) {
+  if (req.session.user) return res.redirect('/home')
+
+  var password = req.body.password;
+  var email = req.body.email;
+  var user = User.find({'email': email, 'password': password})
+
+  user.exec(function(err, user){
+    if(err) res.send(err);
+    req.session.currentUser = user._id
+    res.send(user);
+  });
+
+});
+
 // Update
 // router.put('/:id', function(req, res, next) {
 //   User.update({_id : req.params.id}, {
