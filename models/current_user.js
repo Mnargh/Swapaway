@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 
+
 var Schema = mongoose.Schema;
 
 var CurrentUserSchema = new Schema({
-  currentUser: { type: Schema.Types.ObjectId, ref: 'User' },
+  email: String
 });
 
-module.exports = mongoose.model('current_user', CurrentUserSchema);
+module.exports = mongoose.model('CurrentUsers', CurrentUserSchema);
+ 

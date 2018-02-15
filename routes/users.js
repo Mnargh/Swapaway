@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var User = require("../models/users");
 var CurrentUser = require("../models/current_user");
 var Item = require("../models/items");
+var ObjectID = require('mongodb').ObjectID; 
 // var session = require('express-session')
 
 
@@ -21,21 +22,22 @@ router.get('/', function(req, res, next) {
 router.post('/new', function(req, res, next) {
   var currentUser = new CurrentUser();
   var newUser = new User();
-  newUser.username = req.body.username; 
+  newUser.username = req.body.username;    
   newUser.email = req.body.email;
   newUser.password = req.body.password;
   newUser.bio = req.body.bio;
+  currentUser.email = req.body.email;
 
   newUser.save(function(err, newUser){
-    currentUser.current_user = newUser._id
+    
     if (err){
       res.send(err);
     } else {
-      currentUser.save
+      currentUser.save()
       res.json(newUser);
     } 
   });
-});
+}); 
 
 
 
@@ -52,12 +54,12 @@ router.post('/new', function(req, res, next) {
 // // });
 
 // Read
-router.get('/:id', function(req, res, next) {
-  User.findById(req.params.id, function(err, user) {
-    if (err) res.send(err);
-    res.json(user);
-  });
-});
+// router.get('/:id', function(req, res, next) {
+//   User.findById(req.params.id, function(err, user) {
+//     if (err) res.send(err);
+//     res.json(user);
+//   });
+// }); 
 
 
 router.post('/login', function(req, res, next) {
@@ -68,7 +70,7 @@ router.post('/login', function(req, res, next) {
   var user = User.find({'email': email, 'password': password})
 
   user.exec(function(err, user){
-    currentUser.current_user = newUser.id    
+    currentUser.email = newUser.email   
     if(err){
       res.send(err); 
     } else {
@@ -79,17 +81,10 @@ router.post('/login', function(req, res, next) {
 });
 
 
-router.post('/login', function(req, res, next) {
-
-
-  user.exec(function(err, user){
-    currentUser.current_user = newUser.id    
-    if(err){
-      res.send(err); 
-    } else {
-      currentUser.save()
-      res.send(user); 
-    }
+router.get('/logout', function(req, res, next) {
+  CurrentUser.findOneAndRemove({}, (err, user) => {
+    if(err) return res.send("fail")
+    res.json({ message: "user successfully logged out!", user });
   });
 });
 
@@ -115,17 +110,22 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
-router.get('/profile', function(req, res) {
-  CurrentUser.findOne({}, (err, user) => {
-    if(err) return res.send("fail")
-    res.json({ message: "user successfully deleted!", user });
-  });
-}); 
 
+ 
+router.get('/profile', function(req, res, next) {
+  CurrentUser.findOne({}, function(err, user){
+    // if(err) res.json(err);
+    // console.log(user._id)
 
-// function getCurrentUser(){
-//  CurrentUser.findOne({})
+    User.find({'email': user.email}, function(err, user){
+      console.log(user)  
+      if(err) res.json(err); 
+      res.json(user)    
+    });     
+  });  
+});  
+ 
+  
 
-// } 
-
-module.exports = router; 
+module.exports = router;  
+  

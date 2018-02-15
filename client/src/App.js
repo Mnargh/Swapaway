@@ -10,6 +10,7 @@ import ItemPage from './components/pages/ItemPage';
 import Items from './components/pages/Items';
 import MyItemsPage from './components/pages/MyItemsPage'
 import { Route } from 'react-router-dom';
+import ProfilePage from './components/pages/profile';
 
 // class App extends Component {
 //   constructor(props){
@@ -45,6 +46,7 @@ const App = () => (
     <Route path="/items" exact component={Items} />
     <Route path="/items/:_id" exact component={ItemPage} />
     <Route path="/items/myitems" exact component={MyItemsPage} />
+    <Route path="/profile" exact component={ProfilePage} />
   </div>
 )
 
