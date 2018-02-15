@@ -26,3 +26,37 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+.NewItemForm {
+  position: relative;
+  left: 8.5%
+}
+
+.SignUpForm{
+  position: relative;
+  left: 8.5%
+}
+
+.LoginForm {
+  position: relative;
+  left: 8.5%
+}
+
+.container1 {
+  height: 100%;
+}
+
+.container2 {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+.HomePage {
+  font-size: 10em;
+  height: 100%;
+  background-image: url("https://www.jampaper.com/userFiles/productImages/1000x1000_3712__Bulk-Paper-Clips.jpg");
+}

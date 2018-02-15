@@ -30,7 +30,7 @@ class SignUpForm extends Component {
             <Col componentClass={ControlLabel} sm={2}>
               Email
             </Col>
-            <Col sm={10}>
+            <Col sm={6}>
               <FormControl type="email" name="email" placeholder="Email" />
             </Col>
           </FormGroup>
@@ -39,7 +39,7 @@ class SignUpForm extends Component {
             <Col componentClass={ControlLabel} sm={2}>
               User Name
             </Col>
-            <Col sm={10}>
+            <Col sm={6}>
               <FormControl type="text" name="username" placeholder="User Name" />
             </Col>
           </FormGroup>
@@ -48,7 +48,7 @@ class SignUpForm extends Component {
             <Col componentClass={ControlLabel} sm={2}>
               Password
             </Col>
-            <Col sm={10}>
+            <Col sm={6}>
               <FormControl type="password" name="password" placeholder="Password" />
             </Col>
           </FormGroup>
@@ -57,13 +57,13 @@ class SignUpForm extends Component {
             <Col componentClass={ControlLabel} sm={2}>
               Bio
             </Col>
-            <Col sm={10}>
+            <Col sm={6}>
               <FormControl type="text" name="bio" placeholder="Add something about your self" />
             </Col>
           </FormGroup>
 
           <FormGroup>
-            <Col smOffset={2} sm={10}>
+            <Col smOffset={0} sm={10}>
               <Button type="submit">Submit</Button>
             </Col>
           </FormGroup>

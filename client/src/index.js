@@ -9,9 +9,9 @@ import MainNavbar from './components/navbar/MainNavbar';
 
 ReactDOM.render(
   <BrowserRouter>
-    <div>
+    <div className="container1">
       <MainNavbar />
-      <div className="container">
+      <div className="container2">
         <App />
       </div>
     </div>

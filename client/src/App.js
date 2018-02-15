@@ -37,7 +37,7 @@ import { Route } from 'react-router-dom';
 // }
 
 const App = () => (
-  <div>
+  <div className="App">
     <Route path="/" exact component={HomePage} />
     <Route path="/login" exact component={LoginPage} />
     <Route path="/signup" exact component={SignUpPage} />
