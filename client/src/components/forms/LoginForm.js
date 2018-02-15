@@ -5,7 +5,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="LoginForm">
-        <Form horizontal>
+        <Form horizontal action="users/login" method="POST">
           <FormGroup>
             <Col componentClass={ControlLabel} sm={2}>
               Email
