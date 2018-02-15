@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var User = require("../models/users");
 var CurrentUser = require("../models/current_user");
 var Item = require("../models/items");
-var ObjectID = require('mongodb').ObjectID; 
+var ObjectID = require('mongodb').ObjectID;
 // var session = require('express-session')
 
 
@@ -22,22 +22,23 @@ router.get('/', function(req, res, next) {
 router.post('/new', function(req, res, next) {
   var currentUser = new CurrentUser();
   var newUser = new User();
-  newUser.username = req.body.username;    
+  newUser.username = req.body.username;
   newUser.email = req.body.email;
   newUser.password = req.body.password;
   newUser.bio = req.body.bio;
+  newUser.picture = req.body.picture;
   currentUser.email = req.body.email;
 
   newUser.save(function(err, newUser){
-    
+
     if (err){
       res.send(err);
     } else {
       currentUser.save()
-      res.json(newUser);
-    } 
+      return res.redirect('/profile');
+    }
   });
-}); 
+});
 
 
 
@@ -59,7 +60,7 @@ router.post('/new', function(req, res, next) {
 //     if (err) res.send(err);
 //     res.json(user);
 //   });
-// }); 
+// });
 
 
 router.post('/login', function(req, res, next) {
@@ -70,12 +71,13 @@ router.post('/login', function(req, res, next) {
   var user = User.find({'email': email, 'password': password})
 
   user.exec(function(err, user){
-    currentUser.email = newUser.email   
+    currentUser.email = user[0].email;
     if(err){
-      res.send(err); 
+      res.send(err);
     } else {
+      // console.log(currentUser);
       currentUser.save()
-      res.send(user); 
+      return res.redirect('/');
     }
   });
 });
@@ -99,33 +101,31 @@ router.get('/logout', function(req, res, next) {
 // //     function(err, user) {
 // //         if (err) res.send(err);
 // //         else res.redirect('/user/'+ req.params.id);
-// //     }); 
+// //     });
 // //   });
 // // });
 
 // Delete
 router.delete('/:id', function(req, res, next) {
   User.remove({_id : req.params.id}, (err, result) => {
-    res.json({ message: "user successfully deleted!", result }); 
+    res.json({ message: "user successfully deleted!", result });
   });
 });
 
 
- 
+
 router.get('/profile', function(req, res, next) {
   CurrentUser.findOne({}, function(err, user){
     // if(err) res.json(err);
     // console.log(user._id)
-
+    console.log(user);
     User.find({'email': user.email}, function(err, user){
-      console.log(user)  
-      if(err) res.json(err); 
-      res.json(user)    
-    });     
-  });  
-});  
- 
-  
+      if(err) res.json(err);
+      res.json(user)
+    });
+  });
+});
 
-module.exports = router;  
-  
+
+
+module.exports = router;

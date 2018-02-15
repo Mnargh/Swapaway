@@ -11,7 +11,7 @@ class LoginForm extends Component {
               Email
             </Col>
             <Col sm={6}>
-              <FormControl type="email" placeholder="Email" />
+              <FormControl type="email" name="email" placeholder="Email" />
             </Col>
           </FormGroup>
 
@@ -20,7 +20,7 @@ class LoginForm extends Component {
               Password
             </Col>
             <Col sm={6}>
-              <FormControl type="password" placeholder="Password" />
+              <FormControl type="password" name="password" placeholder="Password" />
             </Col>
           </FormGroup>
 

@@ -61,6 +61,14 @@ class SignUpForm extends Component {
               <FormControl type="text" name="bio" placeholder="Add something about your self" />
             </Col>
           </FormGroup>
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              Profile Picture
+            </Col>
+            <Col sm={6}>
+              <FormControl type="text" name="picture" placeholder="Add URL" />
+            </Col>
+          </FormGroup>
 
           <FormGroup>
             <Col smOffset={0} sm={10}>

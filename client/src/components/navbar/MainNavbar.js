@@ -4,6 +4,14 @@ import hoverlogo from './swapaway-light.png'
 import logo from './swapaway-dark.png'
 
 class MainNavbar extends Component {
+  constructor() {
+    super();
+  }
+
+  logout(){
+    fetch('/users/logout', { method: 'GET', redirect: '/'})
+  }
+
   render() {
     return(
       <nav>
@@ -16,7 +24,7 @@ class MainNavbar extends Component {
           <Nav pullRight>
             <NavItem href="/signup">Sign up</NavItem>
             <NavItem href="/login">Login</NavItem>
-            <NavItem href="/logout">Logout</NavItem>
+            <NavItem onClick={this.logout} href='/'>Logout</NavItem>
             <NavItem href="/newitem">Add Item</NavItem>
             <NavItem href="/profile">Profile</NavItem>
           </Nav>

@@ -3,42 +3,39 @@ import {Grid, Col, Thumbnail, Row, Button} from "react-bootstrap"
 
 class ProfilePage extends Component {
 
-  constructor() { 
+  constructor() {
     super();
     this.state = {
       currentUserEmail: '',
       currentUserName: '',
+      currentUserPicture: ''
     }
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     fetch('/users/profile')
     .then(res => res.json())
     .then(res => res[0])
     .then(res => {
-      
+
       this.setState({
         currentUserEmail:res.email,
-        currentUserName:res.username
+        currentUserName:res.username,
+        currentUserPicture:res.picture
       })
-  
+      console.log(this.state.currentUserName)
     })
-  } 
+  }
   render() {
-    return ( 
+    return (
       <div>
         <center>
-          <Grid>   
+          <Grid>
             <Row>
-              <Col xs={6} md={4}> 
-                {/* <h2> {this.state.currentUser[0].email} </h2> */}
-                <Thumbnail src={this.state.currentUser} alt="242x200">
-                  <h3> {this.state.currentUserEmail}</h3>  
-                  <center>
-                    <Button href="" bsStyle="default">Trade currentUser</Button> 
-                  </center>
-                </Thumbnail> 
-              </Col>  
+              <Col xs={6} md={4}>
+                <Thumbnail src={this.state.currentUserPicture} alt="242x200"></Thumbnail>
+                  <h3> {this.state.currentUserEmail}</h3>
+              </Col>
             </Row>
           </Grid>
         </center>
@@ -48,5 +45,3 @@ class ProfilePage extends Component {
 }
 
 export default ProfilePage;
-
-
