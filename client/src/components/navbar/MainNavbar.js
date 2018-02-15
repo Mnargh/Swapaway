@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import hoverlogo from './swapaway-light.png'
+import logo from './swapaway-dark.png'
 
 class MainNavbar extends Component {
   render() {
@@ -8,7 +10,7 @@ class MainNavbar extends Component {
         <Navbar inverse>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">Swapaway</a>
+              <a href="/"><img src={logo}/></a>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav pullRight>
@@ -16,7 +18,7 @@ class MainNavbar extends Component {
             <NavItem href="/login">Login</NavItem>
             <NavItem href="/logout">Logout</NavItem>
             <NavItem href="/newitem">Add Item</NavItem>
-            <NavItem href="/profile">profile</NavItem>
+            <NavItem href="/profile">Profile</NavItem>
           </Nav>
         </Navbar>
       </nav>

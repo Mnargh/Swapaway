@@ -29,6 +29,7 @@
 
 
 
+
 .NewItemForm {
   position: relative;
   left: 8.5%
@@ -58,5 +59,80 @@
 .HomePage {
   font-size: 10em;
   height: 100%;
-  background-image: url("https://www.jampaper.com/userFiles/productImages/1000x1000_3712__Bulk-Paper-Clips.jpg");
+  background-image: ;
+}
+
+#ViewItemsbutton {
+  background-color: #151515;
+  color: #5CBFEB;
+}
+
+#Register {
+  background-color: #151515;
+  color: #5CBFEB;
+
+}
+
+.navbar-inverse .navbar-brand {
+  align-items: center;
+  display: flex;
+}
+
+.navbar-inverse .navbar-brand img{
+  box-shadow: 5px 5px 5px 5px 1 black;
+  padding-top: 10px;
+  max-width: 500%;
+  max-height: 500%;
+}
+/* navbar */
+.navbar-inverse {
+    background-color: #151515;
+    border-color: #E7E7E7;
+}
+/* Title */
+.navbar-inverse .navbar-brand {
+    color: #5CBFEB;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #006998;
+}
+/* Link */
+.navbar-inverse .navbar-nav > li > a {
+    color: #5CBFEB;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #006998;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+
+.navbar-inverse .navbar-nav > .open > a .caret,
+.navbar-inverse .navbar-nav > .open > a:hover .caret,
+.navbar-inverse .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-inverse .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #CCC;
 }
