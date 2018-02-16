@@ -9,7 +9,7 @@ import NewItemPage from './components/pages/NewItemPage';
 import ItemPage from './components/pages/ItemPage';
 import Items from './components/pages/Items';
 import MyItemsPage from './components/pages/MyItemsPage'
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ProfilePage from './components/pages/profile';
 
 // class App extends Component {
@@ -39,14 +39,17 @@ import ProfilePage from './components/pages/profile';
 
 const App = () => (
   <div className="App">
-    <Route path="/" exact component={HomePage} />
-    <Route path="/login" exact component={LoginPage} />
-    <Route path="/signup" exact component={SignUpPage} />
-    <Route path="/newitem" exact component={NewItemPage} />
-    <Route path="/items" exact component={Items} />
-    <Route path="/items/:_id" exact component={ItemPage} />
-    <Route path="/items/myitems" exact component={MyItemsPage} />
-    <Route path="/profile" exact component={ProfilePage} />
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/login" exact component={LoginPage} />
+      <Route path="/signup" exact component={SignUpPage} />
+      <Route path="/newitem" exact component={NewItemPage} />
+      <Route path="/items" exact component={Items} />
+      <Route path="/items/myitems" exact component={MyItemsPage} />
+      <Route path="/items/:_id" exact component={ItemPage} />
+      <Route path="/profile" exact component={ProfilePage} />
+    </Switch>
+
   </div>
 )
 
