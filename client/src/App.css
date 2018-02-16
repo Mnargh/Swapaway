@@ -59,7 +59,8 @@
 .HomePage {
   font-size: 10em;
   height: 100%;
-  background-image: ;
+  background-color: lightgrey;
+
 }
 
 #ViewItemsbutton {
@@ -70,6 +71,7 @@
 #Register {
   background-color: #151515;
   color: #5CBFEB;
+  
 
 }
 
