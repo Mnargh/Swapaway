@@ -22,6 +22,10 @@
   font-size: large;
 }
 
+.logo {
+  margin-bottom: -2em;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -71,7 +75,7 @@
 #Register {
   background-color: #151515;
   color: #5CBFEB;
-  
+
 
 }
 

@@ -8,7 +8,8 @@ class ProfilePage extends Component {
     this.state = {
       currentUserEmail: '',
       currentUserName: '',
-      currentUserPicture: ''
+      currentUserPicture: '',
+      currentUserBio: ''
     }
   }
 
@@ -21,25 +22,28 @@ class ProfilePage extends Component {
       this.setState({
         currentUserEmail:res.email,
         currentUserName:res.username,
-        currentUserPicture:res.picture
+        currentUserPicture:res.picture,
+        currentUserBio:res.bio,
       })
       console.log(this.state.currentUserName)
     })
   }
   render() {
     return (
-      <div>
-        <center>
-          <Grid>
-            <Row>
-              <Col xs={6} md={4}>
-                <Thumbnail src={this.state.currentUserPicture} alt="242x200"></Thumbnail>
-                  <h3> {this.state.currentUserEmail}</h3>
-              </Col>
-            </Row>
-          </Grid>
-        </center>
-      </div>
+      <center>
+        <Grid>
+          <Row>
+            <Col xs={6} md={4}>
+              <Thumbnail src={this.state.currentUserPicture} alt="242x200">
+                <h2> {this.state.currentUserName} </h2>
+                <h3> {this.state.currentUserEmail}</h3>
+                <h3> {this.state.currentUserBio}</h3>
+                  <Button bsStyle="default">Edit</Button>
+              </Thumbnail>
+            </Col>
+          </Row>
+        </Grid>
+      </center>
     );
   }
 }

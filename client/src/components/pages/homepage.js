@@ -8,7 +8,7 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         <center>
-          <img src={logo}/><p>
+          <img class="logo" src={logo}/><p>
           </p>
           <Button id="ViewItemsbutton" href="/items" bsSize="large">View Items</Button>
           {'   '}<Button id="Register" href="/signup" bsSize="large">Register</Button>
