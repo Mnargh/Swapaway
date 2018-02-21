@@ -40,7 +40,7 @@ $ npm install chai mocha chai-http request --save-dev
 
 ## Usage
 
-To use the application, use the following command while inside the Swapaway 
+To use the application, use the following command while inside the Swapaway folder.
 
 `npm run dev` 
 
@@ -104,7 +104,7 @@ As a user
 To make my item available for swap
 I'd like to add my item to the item list
 ```
-___
+
 ```
 As a new user
 To join this amazing website
