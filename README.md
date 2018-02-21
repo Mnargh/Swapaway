@@ -29,14 +29,43 @@ $ npm install chai mocha chai-http request --save-dev
 
 `npm install`
 
-# Usage
+## Usage
 
 To use the application, use the following command while inside the Swapaway 
 
 `npm run dev` 
 
+The application should auto-load in your default browser. You can see it by visiting localhost://4000
 
-# User stories
+### Home Page
+
+![alt text](./Homepage.png "Homepage Screenshot")
+
+### Sign up
+
+![alt text](./Signup.png "Sign up Screenshot")
+
+### User Profile
+
+![alt text](./User_Profile.png "Profile Screenshot")
+
+### Adding items
+
+![alt text](./Add_item.png "Adding item Screenshot")
+
+### My items
+
+![alt text](./My_items.png "My items Screenshot")
+
+### All items
+
+![alt text](./All_items.png "All items Screenshot")
+
+
+
+## Design Process
+
+## User stories
 
 ```
 As a user
@@ -74,7 +103,7 @@ To join this amazing website
 I want to securely sign up for an account
 ```
 
-# Tech Stack
+## Tech Stack
 
 | Tech | Description |
 | ------ | ------ |
@@ -83,8 +112,15 @@ I want to securely sign up for an account
 | React | An open source JS library for creating front end views |
 | NodeJS | JavaScript runtime used to execute code outside a browser |
 
+## Retrospective
 
-# Team members
+# What went well
+
+# What could be improved
+
+# What we would do with more time
+
+## Team members
 
 * [Charles Emery](https://github.com/charlesemery15)
 * [Tom Brandon](https://github.com/mnargh)
